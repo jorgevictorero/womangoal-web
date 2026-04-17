@@ -1,21 +1,11 @@
 import { useState } from 'react'
 
-/* ── Image URLs from Pencil design ──────────────────────────────────────── */
-const HERO_IMG = 'https://images.unsplash.com/photo-1629977008298-926046be0a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1920'
-const WWD_IMG_1 = 'https://images.unsplash.com/photo-1607417306748-8479df424735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const WWD_IMG_2 = 'https://images.unsplash.com/photo-1603291697926-7e5822ed1ac5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const WWD_IMG_3 = 'https://images.unsplash.com/photo-1525436519918-5671ec6c6b50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const WWD_IMG_4 = 'https://images.unsplash.com/photo-1754546995327-14ac5c848fb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const INTL_IMG = 'https://images.unsplash.com/photo-1763711692285-d0abc5861b63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080'
-const GALLERY_1 = 'https://images.unsplash.com/photo-1559506144-0f4f1a05c4ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const GALLERY_2 = 'https://images.unsplash.com/photo-1646743934953-d68ede89dd60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const PROMISES_IMG = 'https://images.unsplash.com/photo-1599446691418-9938936aa43b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const ACADEMY_IMG = 'https://images.unsplash.com/photo-1553778263-73a83bab9b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080'
-const IMPACT_IMG = 'https://images.unsplash.com/photo-1748803070479-e63a262acbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800'
-const MANIFESTO_IMG = 'https://images.unsplash.com/photo-1535116574766-9a678bf80bf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1920'
-const PROJ_1_IMG = 'https://images.unsplash.com/photo-1608154119029-53f3c6ad12e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=900'
-const PROJ_2_IMG = 'https://images.unsplash.com/photo-1598863505577-74750d3b4475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=900'
-const PROJ_3_IMG = 'https://images.unsplash.com/photo-1661282490410-4023ca233fc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=900'
+/* ── Image paths (official Womangoal assets in /public) ─────────────────── */
+const IMG_GROUP    = '/images/DSC03363.jpg'
+const IMG_ACTION1  = '/images/DSC03455.jpg'
+const IMG_ACTION2  = '/images/DSC03483.jpg'
+const IMG_ACTION3  = '/images/DSC03864.jpg'
+const IMG_TRAINING = '/images/DSC06005.jpg'
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
 function Header() {
@@ -27,7 +17,7 @@ function Header() {
         <span className="header-logo">WOMANGOAL</span>
         <div className="header-right">
           <span className="header-nav">
-            Nosotras · Servicios · Internacional · Promises · Academia · Contacto
+            Nosotras · Servicios · Draft Internacional · Promises · Academia · Contacto
           </span>
           <span className="header-lang">ES / EN</span>
           <button className="header-cta">Solicitar info</button>
@@ -50,7 +40,7 @@ function Header() {
           >
             ✕
           </button>
-          {['Nosotras', 'Servicios', 'Internacional', 'Promises', 'Academia', 'Contacto'].map(item => (
+          {['Nosotras', 'Servicios', 'Draft Internacional', 'Promises', 'Academia', 'Contacto'].map(item => (
             <span
               key={item}
               className="mobile-menu-link"
@@ -68,19 +58,27 @@ function Header() {
   )
 }
 
-/* ── Hero ────────────────────────────────────────────────────────────────── */
+/* ── Hero (Video) ───────────────────────────────────────────────────────── */
 function Hero() {
   return (
     <section className="hero" id="hero">
-      <img src={HERO_IMG} alt="Womangoal — fútbol femenino" className="hero-bg" />
+      <video
+        className="hero-video"
+        src="/video-hero.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <img src={IMG_ACTION2} alt="Womangoal — fútbol femenino" className="hero-bg" />
       <div className="hero-overlay" />
       <div className="hero-content">
-        <span className="hero-line">WE LIVE</span>
-        <span className="hero-line">WOMEN'S</span>
+        <span className="hero-line">MORE WOMEN,</span>
+        <span className="hero-line">MORE</span>
         <span className="hero-line">FOOTBALL.</span>
         <div className="hero-sub-wrap">
           <p className="hero-sub">
-            Agencia internacional de fútbol femenino. Madrid → el mundo.
+            La plataforma global que impulsa el fútbol femenino a nivel mundial. Madrid → el mundo.
           </p>
         </div>
       </div>
@@ -98,7 +96,10 @@ function Brand() {
     <section className="brand" id="nosotras">
       <h2 className="brand-headline">Somos Womangoal.</h2>
       <p className="brand-body">
-        Conectamos talento, clubes y oportunidades en el fútbol femenino global desde Madrid.
+        Somos una compañía especializada en captación de talento, formación, creación de activos
+        y construcción de negocio del fútbol femenino a nivel global. Cuidamos a nuestras jugadoras
+        tanto personal como profesionalmente, ofreciendo un compromiso 360º desde la gestión
+        deportiva hasta la creación de academias y programas formativos.
       </p>
       <div className="brand-rule" />
       <button className="brand-cta">Conócenos →</button>
@@ -111,27 +112,27 @@ function WhatWeDo() {
   const cards = [
     {
       num: '01.',
-      img: WWD_IMG_1,
-      title: 'INTERNATIONAL DRAFTS',
-      desc: 'Conectamos jugadoras con clubes internacionales en Europa, USA y México.',
+      img: IMG_ACTION1,
+      title: 'DRAFT INTERNACIONAL',
+      desc: 'El primer draft mundial de fútbol femenino. Recorremos los 5 continentes y 17 países buscando al mejor talento para conectarlo con clubes de élite.',
     },
     {
       num: '02.',
-      img: WWD_IMG_2,
-      title: 'PROMISES DRAFT NACIONAL',
-      desc: 'Programa de detección de jóvenes talentos a nivel nacional.',
+      img: IMG_GROUP,
+      title: 'PROMISES — DRAFT NACIONAL',
+      desc: 'Circuito nacional de detección de talento para jugadoras nacidas entre 2008 y 2013, con la posibilidad de optar a una Beca Womangoal completa.',
     },
     {
       num: '03.',
-      img: WWD_IMG_3,
+      img: IMG_TRAINING,
       title: 'WOMANGOAL ACADEMY',
-      desc: 'Formación integral para jugadoras con proyección internacional.',
+      desc: 'Modelo de franquicia para abrir una Womangoal Academy en cualquier parte del mundo. Metodología probada y soporte de marca completo.',
     },
     {
       num: '04.',
-      img: WWD_IMG_4,
+      img: IMG_ACTION3,
       title: 'REPRESENTACIÓN & ASESORÍA',
-      desc: 'Gestión integral de carrera, contratos, imagen y asesoría legal.',
+      desc: 'Gestión integral de carrera: asesoramiento deportivo, acompañamiento, image boost y 360º brand building para cada jugadora.',
     },
   ]
 
@@ -157,24 +158,25 @@ function International() {
   return (
     <section className="intl" id="internacional">
       <div className="intl-split">
-        <img src={INTL_IMG} alt="Drafts Internacionales" className="intl-photo" />
+        <img src={IMG_ACTION3} alt="Draft Internacional" className="intl-photo" />
         <div className="intl-txt">
-          <span className="intl-eyebrow">Línea Internacional</span>
+          <span className="intl-eyebrow">El Draft</span>
           <div>
-            <div className="intl-h1">DRAFTS</div>
-            <div className="intl-h2">INTERNACIONALES</div>
+            <div className="intl-h1">DRAFT</div>
+            <div className="intl-h2">WOMANGOAL</div>
           </div>
           <p className="intl-desc">
-            Conectamos el talento del fútbol femenino español con los mejores clubes
-            internacionales. Un proceso de scouting riguroso, showcase events exclusivos
-            y acompañamiento personalizado en cada etapa.
+            El WomanGoal Draft es el primer draft mundial para la comunidad del fútbol femenino,
+            que abarca los 5 continentes para seleccionar a las mejores jugadoras que recibirán
+            un apoyo 360° acorde a los valores de WomanGoal. En la fase final, reunimos a
+            importantes directores deportivos de clubes nacionales e internacionales.
           </p>
           <div className="intl-arrows">
             {[
-              '→  Scouting global',
-              '→  Conexión con clubes top Europa / USA / México',
-              '→  Showcase events exclusivos',
-              '→  Acompañamiento integral en cada etapa',
+              '→  Scouting global en 5 continentes y 17 países',
+              '→  Selección por talento deportivo, branding y potencial ForGood',
+              '→  Draft Final en España con directores deportivos de clubs',
+              '→  Participación 100% gratuita para las jugadoras',
             ].map(item => (
               <span className="intl-arrow-item" key={item}>{item}</span>
             ))}
@@ -183,10 +185,10 @@ function International() {
         </div>
       </div>
       <div className="intl-gallery">
-        <img src={GALLERY_1} alt="Galería 1" className="intl-gallery-img" />
-        <img src={GALLERY_2} alt="Galería 2" className="intl-gallery-img" />
-        <img src={GALLERY_2} alt="Galería 3" className="intl-gallery-img" />
-        <img src={GALLERY_1} alt="Galería 4" className="intl-gallery-img" />
+        <img src={IMG_GROUP} alt="Jugadoras Womangoal" className="intl-gallery-img" />
+        <img src={IMG_ACTION1} alt="Entrenamiento" className="intl-gallery-img" />
+        <img src={IMG_TRAINING} alt="Training" className="intl-gallery-img" />
+        <img src={IMG_ACTION2} alt="Acción" className="intl-gallery-img" />
       </div>
     </section>
   )
@@ -197,25 +199,25 @@ function Promises() {
   const pillars = [
     {
       num: '01',
-      title: 'DETECTAR',
-      desc: 'Identificamos talento emergente en toda España a través de showcases y red de scouts.',
+      title: 'INSCRIPCIÓN',
+      desc: '250-350 jugadoras locales nacidas entre 2008 y 2013 se inscriben a través de nuestra App en cada ciudad.',
     },
     {
       num: '02',
-      title: 'FORMAR',
-      desc: 'Metodología Womangoal de alto rendimiento: técnica, táctica, mentalidad y desarrollo personal.',
+      title: 'DRAFT LOCAL',
+      desc: 'Un fin de semana en tu ciudad con pruebas, entrenamientos y evaluación profesional. Evento público con familias y comunidad deportiva.',
     },
     {
       num: '03',
-      title: 'PROYECTAR',
-      desc: 'Conectamos a las mejores jugadoras con clubes, ligas y oportunidades profesionales.',
+      title: 'SHOWCASE FINAL',
+      desc: 'Las seleccionadas de cada ciudad vivirán una experiencia única de una semana en nuestro centro de Alto Rendimiento en Madrid.',
     },
   ]
 
   return (
     <section className="promises" id="promises">
       <div className="promises-inner">
-        <span className="promises-eyebrow">LÍNEA NACIONAL · NUEVO PROYECTO</span>
+        <span className="promises-eyebrow">LÍNEA NACIONAL · CIRCUITO 2026-2027</span>
         <div className="promises-lockup">
           <div className="promises-badge">
             <span className="promises-badge-letter">P</span>
@@ -227,15 +229,16 @@ function Promises() {
         </div>
         <div className="promises-spacer" />
         <h2 className="promises-headline">
-          EL FUTURO DEL FÚTBOL FEMENINO ESPAÑOL
+          EL CIRCUITO QUE CONECTA TALENTO CON TU CIUDAD
         </h2>
         <p className="promises-body">
-          Promises es nuestro programa nacional para detectar, formar y proyectar el talento
-          del fútbol femenino español. Un proyecto cercano, ambicioso y hecho por y para
-          jugadoras españolas.
+          WomanGoal Promises recorrerá diferentes ciudades de España entre 2026 y 2027,
+          ofreciendo a talentos femeninos nacidos entre 2008 y 2013 una experiencia única,
+          con la posibilidad de optar a una Beca Womangoal para formarse, competir y crecer
+          durante 10 meses en un Centro de Alto Rendimiento en Madrid.
         </p>
         <div className="promises-content-row">
-          <img src={PROMISES_IMG} alt="Promises" className="promises-photo" />
+          <img src={IMG_ACTION1} alt="Promises" className="promises-photo" />
           <div className="promises-pillars">
             {pillars.map(p => (
               <div className="promises-pillar" key={p.num}>
@@ -281,7 +284,7 @@ function Academy() {
     <section className="academy" id="academia">
       <div className="academy-inner">
         <span className="academy-eyebrow">WOMANGOAL ACADEMY</span>
-        <img src={ACADEMY_IMG} alt="Womangoal Academy" className="academy-visual" />
+        <img src={IMG_TRAINING} alt="Womangoal Academy" className="academy-visual" />
         <h2 className="academy-headline">
           OPEN A WOMANGOAL ACADEMY ANYWHERE IN THE WORLD.
         </h2>
@@ -310,13 +313,13 @@ function Academy() {
 
 /* ── Partners Section ────────────────────────────────────────────────────── */
 function Partners() {
-  const partners = ['UEFA', 'RFEF', 'KAPPA', 'YouTube', 'FOREO', 'EVEROY', 'EVERTON FC']
+  const partners = ['NIKE', 'FÚTBOL EMOTION', 'PODOACTIVA', 'FOREO', 'EVERGY', 'VEO']
 
   return (
     <section className="partners">
       <div className="partners-divider" />
       <div className="partners-inner">
-        <span className="partners-label">WE WORK WITH</span>
+        <span className="partners-label">NUESTROS PARTNERS</span>
         <div className="partners-row">
           {partners.map(p => (
             <div className="partner-item" key={p}>
@@ -334,50 +337,50 @@ function FeaturedProjects() {
   return (
     <section className="projects" id="proyectos">
       <div className="projects-header">
-        <span className="projects-title">PROYECTOS DESTACADOS</span>
+        <span className="projects-title">UNIVERSO WOMANGOAL</span>
         <span className="projects-view-all">Ver todos →</span>
       </div>
 
-      {/* Project 1: photo left */}
       <div className="project-row">
-        <img src={PROJ_1_IMG} alt="Draft USA 2025" className="project-photo" />
+        <img src={IMG_ACTION2} alt="Draft Internacional 2026" className="project-photo" />
         <div className="project-content project-content--light">
           <span className="project-num">01</span>
-          <span className="project-tag">INTERNACIONAL · 2025</span>
-          <h3 className="project-name">Draft USA 2025</h3>
+          <span className="project-tag">DRAFT INTERNACIONAL · 2026</span>
+          <h3 className="project-name">Global Draft 2026</h3>
           <p className="project-desc">
-            32 jugadoras españolas proyectadas hacia la NWSL y ligas universitarias americanas.
-            El mayor draft internacional de la historia de Womangoal.
+            5 continentes, 17 países, 28 jugadoras seleccionadas. El mayor draft internacional
+            de fútbol femenino del mundo con apoyo 360° y la presencia de directores deportivos
+            de clubes de élite.
           </p>
           <span className="project-cta">Ver proyecto →</span>
         </div>
       </div>
 
-      {/* Project 2: content left, photo right */}
       <div className="project-row">
         <div className="project-content project-content--lighter">
           <span className="project-num">02</span>
-          <span className="project-tag">NACIONAL · 2024</span>
-          <h3 className="project-name">Promises Madrid — Primera Edición</h3>
+          <span className="project-tag">NACIONAL · 2026-2027</span>
+          <h3 className="project-name">Promises — Circuito Nacional</h3>
           <p className="project-desc">
-            Más de 200 jugadoras seleccionadas de toda España. 18 clubs nacionales presentes.
-            El lanzamiento del programa de captación de talento más ambicioso del fútbol femenino español.
+            Un circuito estatal que recorre diferentes ciudades de España donde serán visionadas
+            3.600 jugadoras amateur. Cada sede se convierte en un punto clave que inspira a
+            miles de familias, clubes y jóvenes.
           </p>
           <span className="project-cta">Ver proyecto →</span>
         </div>
-        <img src={PROJ_2_IMG} alt="Promises Madrid" className="project-photo" />
+        <img src={IMG_GROUP} alt="Promises Nacional" className="project-photo" />
       </div>
 
-      {/* Project 3: photo left */}
       <div className="project-row">
-        <img src={PROJ_3_IMG} alt="Womangoal Academy México" className="project-photo" />
+        <img src={IMG_ACTION3} alt="Womangoal Music Fest & Docuserie" className="project-photo" />
         <div className="project-content project-content--light">
           <span className="project-num">03</span>
-          <span className="project-tag">ACADEMIA · MÉXICO · 2024</span>
-          <h3 className="project-name">Womangoal Academy México</h3>
+          <span className="project-tag">ENTRETENIMIENTO · 2026</span>
+          <h3 className="project-name">Music Fest & Docuserie</h3>
           <p className="project-desc">
-            Primera academia Womangoal fuera de España. 120 jugadoras formadas en la primera
-            temporada con metodología oficial Womangoal.
+            Un gran concierto con artistas internacionales para acercar el fútbol femenino a las
+            nuevas generaciones. Además, una docuserie que mostrará las historias detrás de cada
+            jugadora seleccionada en el Draft.
           </p>
           <span className="project-cta">Ver proyecto →</span>
         </div>
@@ -389,25 +392,27 @@ function FeaturedProjects() {
 /* ── Impact Section ──────────────────────────────────────────────────────── */
 function Impact() {
   const stats = [
-    { num: '+350', label: 'jugadoras representadas y proyectadas' },
-    { num: '+25', label: 'países con presencia activa' },
-    { num: '+80', label: 'clubes partners en todo el mundo' },
+    { num: '+15K', label: 'jugadoras vistas al año' },
+    { num: '17', label: 'países con presencia activa en 5 continentes' },
+    { num: '+5.3K', label: 'followers en nuestra comunidad' },
   ]
 
   return (
     <section className="impact" id="impacto">
       <div className="impact-inner">
         <div className="impact-left">
-          <img src={IMPACT_IMG} alt="Equipo Womangoal" className="impact-team-photo" />
-          <span className="impact-eyebrow">NUESTRO IMPACTO</span>
+          <img src={IMG_GROUP} alt="Equipo Womangoal" className="impact-team-photo" />
+          <span className="impact-eyebrow">NUESTRO FOCO ES GLOBAL</span>
           <p className="impact-manifesto">
-            Llevamos años construyendo el futuro del fútbol femenino, jugadora a jugadora,
-            club a club, país a país.
+            Ayudamos a la profesionalización del fútbol femenino a nivel mundial,
+            construyendo y potenciando la imagen de marca de clubs, ligas, federaciones
+            y jugadoras.
           </p>
           <p className="impact-body">
-            Fundada en Madrid, Womangoal opera hoy en cuatro continentes. Nuestro equipo
-            combina experiencia en alto rendimiento deportivo, gestión de clubes y marketing
-            internacional.
+            Nuestro foco está en crear programas de formación ad hoc, encontrar talento
+            deportivo sin coste para las principales ligas de fútbol femenino y responder
+            a las necesidades deportivas de cada club. Conectamos con las generaciones Z
+            y Alfa, creando audiencias nacionales e internacionales.
           </p>
           <span className="impact-cta-team">Conoce al equipo →</span>
         </div>
@@ -430,13 +435,13 @@ function Impact() {
 function Manifesto() {
   return (
     <section className="manifesto">
-      <img src={MANIFESTO_IMG} alt="" className="manifesto-bg" aria-hidden="true" />
+      <img src={IMG_ACTION2} alt="" className="manifesto-bg" aria-hidden="true" />
       <div className="manifesto-overlay" aria-hidden="true" />
       <div className="manifesto-content">
         <span className="manifesto-label">WOMANGOAL</span>
-        <span className="manifesto-line1">WE PLAY</span>
-        <span className="manifesto-line2">for the ones</span>
-        <span className="manifesto-line3">who come next.</span>
+        <span className="manifesto-line1">BUILDING A</span>
+        <span className="manifesto-line2">better world</span>
+        <span className="manifesto-line3">with a future.</span>
       </div>
     </section>
   )
@@ -468,9 +473,9 @@ function ContactForm() {
             Nuestro equipo te responde en menos de 48 horas. Todos los mensajes son leídos
             y respondidos personalmente.
           </p>
-          <span className="contact-offices-label">OFICINAS</span>
-          <p className="contact-office">Madrid (HQ) — Calle Serrano, 41</p>
-          <p className="contact-office">Londres · Ciudad de México · Miami</p>
+          <span className="contact-offices-label">CONTACTO</span>
+          <p className="contact-office">jvictorero@womangoal.com</p>
+          <p className="contact-office">Madrid (HQ) — España</p>
         </div>
 
         <form className="contact-right" onSubmit={handleSubmit} noValidate>
@@ -537,10 +542,11 @@ function ContactForm() {
               required
             >
               <option value="">Selecciona una opción</option>
-              <option value="internacional">Drafts Internacionales</option>
-              <option value="promises">Promises — Draft Nacional</option>
+              <option value="draft-internacional">Draft Internacional</option>
+              <option value="promises">Promises — Circuito Nacional</option>
               <option value="academy">Womangoal Academy</option>
               <option value="representacion">Representación & Asesoría</option>
+              <option value="partnership">Partnership / Patrocinio</option>
               <option value="otros">Otros</option>
             </select>
           </div>
@@ -586,7 +592,7 @@ function Footer() {
         <div className="footer-brand">
           <span className="footer-logo">WOMANGOAL</span>
           <p className="footer-tagline">
-            Agencia internacional de fútbol femenino.{'\n'}Madrid → el mundo.
+            More Women, More Football.{'\n'}Madrid → el mundo.
           </p>
           <div className="footer-newsletter">
             <span className="footer-newsletter-label">NEWSLETTER</span>
@@ -604,14 +610,14 @@ function Footer() {
 
         <nav className="footer-nav" aria-label="Pie de página">
           <div className="footer-nav-col">
-            <span className="footer-nav-col-title">AGENCIA</span>
-            {['Nosotras', 'Servicios', 'Internacional', 'Promises'].map(l => (
+            <span className="footer-nav-col-title">WOMANGOAL</span>
+            {['Nosotras', 'Servicios', 'Draft Internacional', 'Promises'].map(l => (
               <span className="footer-link" key={l}>{l}</span>
             ))}
           </div>
           <div className="footer-nav-col">
             <span className="footer-nav-col-title">ACADEMIAS</span>
-            {['Abrir academia', 'México', 'Metodología'].map(l => (
+            {['Abrir academia', 'Metodología', 'Partners'].map(l => (
               <span className="footer-link" key={l}>{l}</span>
             ))}
           </div>
@@ -628,7 +634,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <span className="footer-copyright">
-          © 2025 Womangoal. Todos los derechos reservados.
+          © 2026 Womangoal. Todos los derechos reservados.
         </span>
         <div className="footer-legal">
           {['Términos y condiciones', 'Privacidad', 'Cookies'].map(l => (
