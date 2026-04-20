@@ -282,20 +282,12 @@ function Academy() {
 
 /* ── Partners Section (logo image) ──────────────────────────────────────── */
 function Partners() {
-  const partners = ['NIKE', 'FÚTBOL EMOTION', 'PODOACTIVA', 'FOREO', 'EVERGY', 'VEO']
-
   return (
     <section className="partners">
       <div className="partners-divider" />
       <div className="partners-inner">
         <span className="partners-label">NUESTROS PARTNERS</span>
-        <div className="partners-row">
-          {partners.map(p => (
-            <div className="partner-item" key={p}>
-              <span className="partner-name">{p}</span>
-            </div>
-          ))}
-        </div>
+        <img src="/images/partners-banner.png" alt="Universo Mujer, Fundación Deporte Joven, CSD, Nike, Fútbol Emotion, FOREO, VEO, Evergy, Podoactiva" className="partners-banner-img" />
       </div>
     </section>
   )

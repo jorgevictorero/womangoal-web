@@ -652,6 +652,14 @@ input, textarea, select { font-family: inherit; }
   color: var(--color-gray-400);
   margin-bottom: 2rem;
 }
+.partners-banner-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  opacity: 0.8;
+}
 .partners-row {
   display: flex;
   justify-content: center;
