@@ -54,12 +54,11 @@ input, textarea, select { font-family: inherit; }
   transition: all 0.4s var(--ease-out-expo);
 }
 .header-logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
-  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
-.header-logo img { height: 32px; }
+.header-logo-img { height: 28px; width: auto; }
 .header-right { display: flex; align-items: center; gap: 2rem; }
 .header-nav {
   font-size: 0.82rem;
@@ -157,8 +156,13 @@ input, textarea, select { font-family: inherit; }
 }
 .hero-content {
   position: relative; z-index: 2;
-  text-align: center;
   padding: 0 2rem;
+}
+.hero-content--bottom-left {
+  position: absolute;
+  bottom: 6rem;
+  left: 3rem;
+  text-align: left;
 }
 .hero-line {
   display: block;
@@ -168,6 +172,10 @@ input, textarea, select { font-family: inherit; }
   color: var(--color-white);
   letter-spacing: 0.02em;
   animation: heroSlide 1s var(--ease-out-expo) both;
+}
+.hero-line--small {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
 }
 .hero-line:nth-child(2) { animation-delay: 0.1s; }
 .hero-line:nth-child(3) {
@@ -259,9 +267,9 @@ input, textarea, select { font-family: inherit; }
 .wwd-label {
   display: block;
   font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  color: var(--color-purple);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 0.06em;
+  color: var(--color-dark);
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -359,6 +367,14 @@ input, textarea, select { font-family: inherit; }
   font-size: 0.85rem;
   color: rgba(255,255,255,0.9);
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.intl-ball-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 .intl-cta {
   align-self: flex-start;
@@ -405,6 +421,10 @@ input, textarea, select { font-family: inherit; }
 .promises-lockup {
   display: flex; align-items: center; gap: 1rem;
   margin-bottom: 1rem;
+}
+.promises-logo-img {
+  height: 120px;
+  width: auto;
 }
 .promises-badge {
   width: 52px; height: 52px;
@@ -856,6 +876,11 @@ input, textarea, select { font-family: inherit; }
   gap: 4rem;
 }
 .contact-left { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
+.contact-logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 0.5rem;
+}
 .contact-eyebrow {
   font-size: 0.75rem;
   font-weight: 600;
@@ -950,6 +975,10 @@ input, textarea, select { font-family: inherit; }
   margin-bottom: 3rem;
 }
 .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+.footer-logo-img {
+  height: 30px;
+  width: auto;
+}
 .footer-logo {
   font-family: var(--font-display);
   font-size: 1.4rem;
