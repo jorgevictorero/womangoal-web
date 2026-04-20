@@ -246,12 +246,34 @@ function Academy() {
 
 /* ── Partners ────────────────────────────────────────────────────────────── */
 function Partners() {
+  const logos = [
+    { src: '/images/partners/universo-mujer.png',    alt: 'Universo Mujer' },
+    { src: '/images/partners/fundacion-deporte.png', alt: 'Fundación Deporte Joven' },
+    { src: '/images/partners/csd.png',               alt: 'Consejo Superior de Deportes' },
+    { src: '/images/partners/nike.png',              alt: 'Nike' },
+    { src: '/images/partners/futbol-emotion.png',    alt: 'Fútbol Emotion' },
+    { src: '/images/partners/foreo.png',             alt: 'FOREO' },
+    { src: '/images/partners/veo.png',               alt: 'VEO' },
+    { src: '/images/partners/evergy.png',            alt: 'Evergy' },
+    { src: '/images/partners/podoactiva.png',        alt: 'Podoactiva' },
+  ]
+  // Duplicate the array so the scroll loop is seamless
+  const loop = [...logos, ...logos]
+
   return (
     <section className="partners">
       <div className="partners-divider" />
       <div className="partners-inner">
         <span className="partners-label">NUESTROS PARTNERS</span>
-        <img src="/images/partners-banner.png" alt="Universo Mujer, Fundación Deporte Joven, CSD, Nike, Fútbol Emotion, FOREO, VEO, Evergy, Podoactiva" className="partners-banner-img" />
+        <div className="partners-marquee">
+          <div className="partners-track">
+            {loop.map((l, i) => (
+              <div className="partner-slide" key={`${l.alt}-${i}`}>
+                <img src={l.src} alt={l.alt} className="partner-logo" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
