@@ -225,9 +225,11 @@ input, textarea, select { font-family: inherit; }
 /* ─── Brand Section ─────────────────────────────────────────────────────── */
 .brand {
   padding: 8rem 3rem;
+  text-align: center;
+}
+.brand-inner {
   max-width: 900px;
   margin: 0 auto;
-  text-align: center;
 }
 .brand-headline {
   font-family: var(--font-display);
@@ -288,32 +290,39 @@ input, textarea, select { font-family: inherit; }
   background: var(--color-white);
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
   transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+  display: flex;
+  flex-direction: column;
 }
 .wwd-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
 .wwd-card-num {
-  display: block;
-  padding: 1.2rem 1.5rem 0;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 2;
   font-family: var(--font-display);
   font-size: 2rem;
   color: var(--color-yellow);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 .wwd-card-img {
-  width: 100%; height: 220px;
+  width: 100%;
+  height: 260px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
+  display: block;
 }
 .wwd-card-title {
   display: block;
-  padding: 0 1.5rem;
+  padding: 1.5rem 1.5rem 0.5rem;
   font-family: var(--font-display);
   font-size: 1.15rem;
   letter-spacing: 0.04em;
   color: var(--color-dark);
-  margin-bottom: 0.5rem;
 }
 .wwd-card-desc {
   padding: 0 1.5rem 1.5rem;
@@ -560,10 +569,13 @@ input, textarea, select { font-family: inherit; }
   margin-bottom: 1.5rem;
 }
 .academy-visual {
-  width: 100%; height: 400px;
+  width: 100%;
+  height: 450px;
   object-fit: cover;
+  object-position: center;
   border-radius: 12px;
   margin-bottom: 2rem;
+  display: block;
 }
 .academy-headline {
   font-family: var(--font-display);
@@ -1027,6 +1039,34 @@ input, textarea, select { font-family: inherit; }
   line-height: 1.5;
   white-space: pre-line;
 }
+.footer-social {
+  margin-top: 1rem;
+}
+.footer-social-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.8rem;
+}
+.footer-social-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-social-link:hover { color: var(--color-yellow); }
+.footer-social-link svg { flex-shrink: 0; }
+
 .footer-newsletter { margin-top: 1rem; }
 .footer-newsletter-label {
   display: block;
@@ -1078,6 +1118,8 @@ input, textarea, select { font-family: inherit; }
   font-size: 0.85rem;
   color: rgba(255,255,255,0.7);
   cursor: pointer;
+  text-decoration: none;
+  display: block;
   transition: color 0.2s;
 }
 .footer-link:hover { color: var(--color-yellow); }

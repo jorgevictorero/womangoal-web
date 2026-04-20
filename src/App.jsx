@@ -70,15 +70,17 @@ function Brand() {
       backgroundImage: `linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)), url(${IMG_STADIUM})`,
       backgroundSize: 'cover', backgroundPosition: 'center',
     }}>
-      <h2 className="brand-headline">Somos Womangoal.</h2>
-      <p className="brand-body">
-        Somos una compañía especializada en captación de talento, formación, creación de activos
-        y construcción de negocio del fútbol femenino a nivel global. Cuidamos a nuestras jugadoras
-        tanto personal como profesionalmente, ofreciendo un compromiso 360º desde la gestión
-        deportiva hasta la creación de academias y programas formativos.
-      </p>
-      <div className="brand-rule" />
-      <button className="brand-cta"><BallIcon /> Conócenos</button>
+      <div className="brand-inner">
+        <h2 className="brand-headline">Somos Womangoal.</h2>
+        <p className="brand-body">
+          Somos una compañía especializada en captación de talento, formación, creación de activos
+          y construcción de negocio del fútbol femenino a nivel global. Cuidamos a nuestras jugadoras
+          tanto personal como profesionalmente, ofreciendo un compromiso 360º desde la gestión
+          deportiva hasta la creación de academias y programas formativos.
+        </p>
+        <div className="brand-rule" />
+        <button className="brand-cta"><BallIcon /> Conócenos</button>
+      </div>
     </section>
   )
 }
@@ -455,6 +457,27 @@ function Footer() {
         <div className="footer-brand">
           <img src="/logo-womangoal.png" alt="Womangoal" className="footer-logo-img" />
           <p className="footer-tagline">More Women, More Football.{'\n'}Madrid → el mundo.</p>
+
+          <div className="footer-social">
+            <span className="footer-social-label">SÍGUENOS</span>
+            <div className="footer-social-row">
+              <a href="https://instagram.com/womangoal_official" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                <span>@womangoal_official</span>
+              </a>
+              <a href="https://tiktok.com/@womangoal_official" target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="TikTok">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/>
+                </svg>
+                <span>@womangoal_official</span>
+              </a>
+            </div>
+          </div>
+
           <div className="footer-newsletter">
             <span className="footer-newsletter-label">NEWSLETTER</span>
             <div className="footer-newsletter-row">
@@ -474,7 +497,10 @@ function Footer() {
           </div>
           <div className="footer-nav-col">
             <span className="footer-nav-col-title">CONTACTO</span>
-            {['Instagram', 'YouTube', 'LinkedIn', 'Contacto'].map(l => <span className="footer-link" key={l}>{l}</span>)}
+            <a href="https://instagram.com/womangoal_official" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
+            <a href="https://tiktok.com/@womangoal_official" target="_blank" rel="noopener noreferrer" className="footer-link">TikTok</a>
+            <a href="mailto:jvictorero@womangoal.com" className="footer-link">Email</a>
+            <a href="#contacto" className="footer-link">Formulario</a>
           </div>
         </nav>
       </div>
