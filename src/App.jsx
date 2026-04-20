@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-/* ── Official Womangoal images ──────────────────────────────────────────── */
+/* ── Imágenes oficiales Womangoal ───────────────────────────────────────── */
 const IMG_STADIUM      = '/images/stadium-seats.jpg'
 const IMG_DRAFT_INTL   = '/images/match-yellow.jpg'
 const IMG_PROMISES_ACT = '/images/promises-action.jpg'
@@ -12,6 +12,9 @@ const IMG_GROUP_PANAMA = '/images/group-panama.jpg'
 const IMG_PLAYERS_CLOSE= '/images/players-closeup.jpg'
 const IMG_WORLD_MAP    = '/images/world-map.jpg'
 const IMG_ACADEMY_NEW  = '/images/academy-new.jpg'
+const BALL             = '/images/ball-icon.png'
+
+const BallIcon = () => <img src={BALL} alt="" className="ball-icon" />
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
 function Header() {
@@ -30,39 +33,23 @@ function Header() {
           <span className="header-lang">ES / EN</span>
           <button className="header-cta">Solicitar info</button>
         </div>
-        <button
-          className="header-hamburger"
-          onClick={() => setMenuOpen(true)}
-          aria-label="Abrir menú"
-        >
-          ☰
-        </button>
+        <button className="header-hamburger" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">☰</button>
       </header>
 
       {menuOpen && (
         <nav className="mobile-menu" role="dialog" aria-label="Menú principal">
-          <button
-            className="mobile-menu-close"
-            onClick={() => setMenuOpen(false)}
-            aria-label="Cerrar menú"
-          >
-            ✕
-          </button>
+          <button className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Cerrar menú">✕</button>
           {['Nosotras', 'Servicios', 'Draft Internacional', 'Promises', 'Academia', 'Contacto'].map(item => (
-            <span key={item} className="mobile-menu-link" onClick={() => setMenuOpen(false)}>
-              {item}
-            </span>
+            <span key={item} className="mobile-menu-link" onClick={() => setMenuOpen(false)}>{item}</span>
           ))}
-          <button className="mobile-menu-cta" onClick={() => setMenuOpen(false)}>
-            Solicitar info
-          </button>
+          <button className="mobile-menu-cta" onClick={() => setMenuOpen(false)}>Solicitar info</button>
         </nav>
       )}
     </>
   )
 }
 
-/* ── Hero (Video — title bottom-left, smaller, no subtitle) ─────────────── */
+/* ── Hero ────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
     <section className="hero" id="hero">
@@ -72,21 +59,16 @@ function Hero() {
         <span className="hero-line hero-line--small">MORE WOMEN,</span>
         <span className="hero-line hero-line--small">MORE FOOTBALL.</span>
       </div>
-      <div className="hero-scroll">
-        <span className="hero-scroll-txt">SCROLL</span>
-        <span className="hero-scroll-icon">↓</span>
-      </div>
     </section>
   )
 }
 
-/* ── Brand Section (with background image) ───────────────────────────────── */
+/* ── Somos Womangoal ─────────────────────────────────────────────────────── */
 function Brand() {
   return (
     <section className="brand" id="nosotras" style={{
       backgroundImage: `linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)), url(${IMG_STADIUM})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
+      backgroundSize: 'cover', backgroundPosition: 'center',
     }}>
       <h2 className="brand-headline">Somos Womangoal.</h2>
       <p className="brand-body">
@@ -96,43 +78,27 @@ function Brand() {
         deportiva hasta la creación de academias y programas formativos.
       </p>
       <div className="brand-rule" />
-      <button className="brand-cta">Conócenos →</button>
+      <button className="brand-cta"><BallIcon /> Conócenos</button>
     </section>
   )
 }
 
-/* ── What We Do (larger title, new images) ──────────────────────────────── */
+/* ── Qué hacemos ─────────────────────────────────────────────────────────── */
 function WhatWeDo() {
   const cards = [
-    {
-      num: '01.',
-      img: IMG_DRAFT_INTL,
-      title: 'DRAFT INTERNACIONAL',
-      desc: 'El primer draft mundial de fútbol femenino. Recorremos los 5 continentes y 17 países buscando al mejor talento para conectarlo con clubes de élite.',
-    },
-    {
-      num: '02.',
-      img: IMG_PROMISES_ACT,
-      title: 'PROMISES — DRAFT NACIONAL',
-      desc: 'Circuito nacional de detección de talento para jugadoras nacidas entre 2008 y 2013, con la posibilidad de optar a una Beca Womangoal completa.',
-    },
-    {
-      num: '03.',
-      img: IMG_ACADEMY,
-      title: 'WOMANGOAL ACADEMY',
-      desc: 'Modelo de franquicia para abrir una Womangoal Academy en cualquier parte del mundo. Metodología probada y soporte de marca completo.',
-    },
-    {
-      num: '04.',
-      img: IMG_REPRESENT,
-      title: 'REPRESENTACIÓN & ASESORÍA',
-      desc: 'Gestión integral de carrera: asesoramiento deportivo, acompañamiento, image boost y 360º brand building para cada jugadora.',
-    },
+    { num: '01.', img: IMG_DRAFT_INTL, title: 'DRAFT INTERNACIONAL',
+      desc: 'El primer draft mundial de fútbol femenino. Recorremos los 5 continentes y 17 países buscando al mejor talento para conectarlo con clubes de élite.' },
+    { num: '02.', img: IMG_PROMISES_ACT, title: 'PROMISES — DRAFT NACIONAL',
+      desc: 'Circuito nacional de detección de talento para jugadoras nacidas entre 2008 y 2013, con la posibilidad de optar a una Beca Womangoal completa.' },
+    { num: '03.', img: IMG_ACADEMY, title: 'WOMANGOAL ACADEMY',
+      desc: 'Modelo de franquicia para abrir una Womangoal Academy en cualquier parte del mundo. Metodología probada y soporte de marca completo.' },
+    { num: '04.', img: IMG_REPRESENT, title: 'REPRESENTACIÓN Y ASESORÍA',
+      desc: 'Gestión integral de carrera: asesoramiento deportivo, acompañamiento, potenciación de imagen y construcción de marca 360º para cada jugadora.' },
   ]
 
   return (
     <section className="wwd" id="servicios">
-      <span className="wwd-label">WHAT WE DO</span>
+      <span className="wwd-label">QUÉ HACEMOS</span>
       <div className="wwd-grid">
         {cards.map(card => (
           <article className="wwd-card" key={card.num}>
@@ -147,7 +113,7 @@ function WhatWeDo() {
   )
 }
 
-/* ── International Section (ball icons instead of arrows) ────────────────── */
+/* ── Sección Internacional ───────────────────────────────────────────────── */
 function International() {
   const items = [
     'Scouting global en 5 continentes y 17 países',
@@ -175,12 +141,12 @@ function International() {
           <div className="intl-arrows">
             {items.map(item => (
               <span className="intl-arrow-item" key={item}>
-                <img src="/images/ball-icon.png" alt="" className="intl-ball-icon" />
+                <img src={BALL} alt="" className="intl-ball-icon" />
                 {item}
               </span>
             ))}
           </div>
-          <button className="intl-cta">Solicitar información →</button>
+          <button className="intl-cta"><BallIcon /> Solicitar información</button>
         </div>
       </div>
       <div className="intl-gallery">
@@ -193,7 +159,7 @@ function International() {
   )
 }
 
-/* ── Promises Section (official logo instead of text title) ──────────────── */
+/* ── Promises ────────────────────────────────────────────────────────────── */
 function Promises() {
   const pillars = [
     { num: '01', title: 'INSCRIPCIÓN', desc: '250-350 jugadoras locales nacidas entre 2008 y 2013 se inscriben a través de nuestra App en cada ciudad.' },
@@ -209,9 +175,7 @@ function Promises() {
           <img src="/images/promises-logo.png" alt="Womangoal Promises" className="promises-logo-img" />
         </div>
         <div className="promises-spacer" />
-        <h2 className="promises-headline">
-          EL CIRCUITO QUE CONECTA TALENTO CON TU CIUDAD
-        </h2>
+        <h2 className="promises-headline">EL CIRCUITO QUE CONECTA TALENTO CON TU CIUDAD</h2>
         <p className="promises-body">
           WomanGoal Promises recorrerá diferentes ciudades de España entre 2026 y 2027,
           ofreciendo a talentos femeninos nacidos entre 2008 y 2013 una experiencia única,
@@ -233,7 +197,7 @@ function Promises() {
           </div>
         </div>
         <div className="promises-cta-row">
-          <button className="promises-cta-btn">Quiero info sobre Promises →</button>
+          <button className="promises-cta-btn"><BallIcon /> Quiero info sobre Promises</button>
           <span className="promises-sec-link">Ver ediciones anteriores</span>
         </div>
       </div>
@@ -241,7 +205,7 @@ function Promises() {
   )
 }
 
-/* ── Academy Section (new image) ─────────────────────────────────────────── */
+/* ── Academia ────────────────────────────────────────────────────────────── */
 function Academy() {
   const steps = [
     { num: '01', title: 'MODELO DE FRANQUICIA', desc: 'Sistema probado de licencia con soporte operativo, legal y de marketing desde el primer día.' },
@@ -254,9 +218,7 @@ function Academy() {
       <div className="academy-inner">
         <span className="academy-eyebrow">WOMANGOAL ACADEMY</span>
         <img src={IMG_ACADEMY_NEW} alt="Womangoal Academy" className="academy-visual" />
-        <h2 className="academy-headline">
-          OPEN A WOMANGOAL ACADEMY ANYWHERE IN THE WORLD.
-        </h2>
+        <h2 className="academy-headline">ABRE UNA WOMANGOAL ACADEMY EN CUALQUIER PARTE DEL MUNDO.</h2>
         <p className="academy-body">
           Nuestro modelo de franquicia permite abrir una Womangoal Academy en cualquier
           parte del mundo. Metodología probada, soporte de marca completo y comunidad global
@@ -272,7 +234,7 @@ function Academy() {
           ))}
         </div>
         <div className="academy-cta-row">
-          <button className="academy-cta-btn">Abrir una academia →</button>
+          <button className="academy-cta-btn"><BallIcon /> Abrir una academia</button>
           <span className="academy-cta-secondary">Ver academias actuales</span>
         </div>
       </div>
@@ -280,7 +242,7 @@ function Academy() {
   )
 }
 
-/* ── Partners Section (logo image) ──────────────────────────────────────── */
+/* ── Partners ────────────────────────────────────────────────────────────── */
 function Partners() {
   return (
     <section className="partners">
@@ -293,13 +255,13 @@ function Partners() {
   )
 }
 
-/* ── Featured Projects (new images) ──────────────────────────────────────── */
+/* ── Universo Womangoal ──────────────────────────────────────────────────── */
 function FeaturedProjects() {
   return (
     <section className="projects" id="proyectos">
       <div className="projects-header">
         <span className="projects-title">UNIVERSO WOMANGOAL</span>
-        <span className="projects-view-all">Ver todos →</span>
+        <span className="projects-view-all"><BallIcon /> Ver todos</span>
       </div>
 
       <div className="project-row">
@@ -313,7 +275,7 @@ function FeaturedProjects() {
             de fútbol femenino del mundo con apoyo 360° y la presencia de directores deportivos
             de clubes de élite.
           </p>
-          <span className="project-cta">Ver proyecto →</span>
+          <span className="project-cta"><BallIcon /> Ver proyecto</span>
         </div>
       </div>
 
@@ -327,7 +289,7 @@ function FeaturedProjects() {
             3.600 jugadoras amateur. Cada sede se convierte en un punto clave que inspira a
             miles de familias, clubes y jóvenes.
           </p>
-          <span className="project-cta">Ver proyecto →</span>
+          <span className="project-cta"><BallIcon /> Ver proyecto</span>
         </div>
         <img src={IMG_GROUP_STANDS} alt="Promises Nacional" className="project-photo" />
       </div>
@@ -337,25 +299,25 @@ function FeaturedProjects() {
         <div className="project-content project-content--light">
           <span className="project-num">03</span>
           <span className="project-tag">ENTRETENIMIENTO · 2026</span>
-          <h3 className="project-name">Music Fest & Docuserie</h3>
+          <h3 className="project-name">Music Fest y Docuserie</h3>
           <p className="project-desc">
             Un gran concierto con artistas internacionales para acercar el fútbol femenino a las
             nuevas generaciones. Además, una docuserie que mostrará las historias detrás de cada
             jugadora seleccionada en el Draft.
           </p>
-          <span className="project-cta">Ver proyecto →</span>
+          <span className="project-cta"><BallIcon /> Ver proyecto</span>
         </div>
       </div>
     </section>
   )
 }
 
-/* ── Impact Section (world map image) ────────────────────────────────────── */
+/* ── Nuestro foco es global ──────────────────────────────────────────────── */
 function Impact() {
   const stats = [
     { num: '+15K', label: 'jugadoras vistas al año' },
     { num: '17', label: 'países con presencia activa en 5 continentes' },
-    { num: '+5.3K', label: 'followers en nuestra comunidad' },
+    { num: '+5.3K', label: 'seguidores en nuestra comunidad' },
   ]
 
   return (
@@ -375,7 +337,7 @@ function Impact() {
             a las necesidades deportivas de cada club. Conectamos con las generaciones Z
             y Alfa, creando audiencias nacionales e internacionales.
           </p>
-          <span className="impact-cta-team">Conoce al equipo →</span>
+          <span className="impact-cta-team"><BallIcon /> Conoce al equipo</span>
         </div>
         <div className="impact-right">
           {stats.map((s, i) => (
@@ -392,7 +354,7 @@ function Impact() {
   )
 }
 
-/* ── Manifesto Section (all lowercase) ───────────────────────────────────── */
+/* ── Manifiesto ──────────────────────────────────────────────────────────── */
 function Manifesto() {
   return (
     <section className="manifesto">
@@ -408,7 +370,7 @@ function Manifesto() {
   )
 }
 
-/* ── Contact Form (updated address + logo) ───────────────────────────────── */
+/* ── Contacto ────────────────────────────────────────────────────────────── */
 function ContactForm() {
   const [form, setForm] = useState({
     nombre: '', email: '', club: '', pais: '', interes: '', mensaje: '', rgpd: false,
@@ -465,8 +427,8 @@ function ContactForm() {
               <option value="draft-internacional">Draft Internacional</option>
               <option value="promises">Promises — Circuito Nacional</option>
               <option value="academy">Womangoal Academy</option>
-              <option value="representacion">Representación & Asesoría</option>
-              <option value="partnership">Partnership / Patrocinio</option>
+              <option value="representacion">Representación y Asesoría</option>
+              <option value="partnership">Patrocinio / Colaboración</option>
               <option value="otros">Otros</option>
             </select>
           </div>
@@ -478,7 +440,7 @@ function ContactForm() {
             <input type="checkbox" id="rgpd" name="rgpd" className="form-rgpd-box" checked={form.rgpd} onChange={handleChange} required />
             <label htmlFor="rgpd" className="form-rgpd-text">He leído y acepto la Política de Privacidad y el uso de mis datos.</label>
           </div>
-          <button type="submit" className="form-submit">CONTACT US / ENVIAR</button>
+          <button type="submit" className="form-submit">ENVIAR</button>
         </form>
       </div>
     </section>
