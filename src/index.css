@@ -377,8 +377,10 @@ input, textarea, select { font-family: inherit; }
   display: block;
 }
 .wwd-card-img--contain {
-  object-fit: contain;
-  background: linear-gradient(180deg, #EFF5FF 0%, #9EB6FF 100%);
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
 }
 .wwd-card-title {
   display: block;
