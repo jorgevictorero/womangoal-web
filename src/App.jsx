@@ -151,8 +151,7 @@ function WhatWeDo() {
     { num: '03.', img: IMG_ACADEMY, title: 'WOMANGOAL ACADEMY',
       desc: 'Modelo de franquicia para abrir una Womangoal Academy en cualquier parte del mundo. Metodología probada y soporte de marca completo.' },
     { num: '04.', img: IMG_REPRESENT, title: 'REPRESENTACIÓN Y ASESORÍA',
-      desc: 'Gestión integral de carrera: asesoramiento deportivo, acompañamiento, potenciación de imagen y construcción de marca 360º para cada jugadora.',
-      imgClass: 'wwd-card-img--contain' },
+      desc: 'Gestión integral de carrera: asesoramiento deportivo, acompañamiento, potenciación de imagen y construcción de marca 360º para cada jugadora.' },
   ]
 
   return (
@@ -162,7 +161,7 @@ function WhatWeDo() {
         {cards.map(card => (
           <article className="wwd-card" key={card.num}>
             <span className="wwd-card-num">{card.num}</span>
-            <img src={card.img} alt={card.title} className={`wwd-card-img ${card.imgClass || ''}`} />
+            <img src={card.img} alt={card.title} className="wwd-card-img" />
             <span className="wwd-card-title">{card.title}</span>
             <p className="wwd-card-desc">{card.desc}</p>
           </article>
