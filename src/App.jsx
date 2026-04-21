@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 /* ── Imágenes oficiales Womangoal ───────────────────────────────────────── */
 const IMG_STADIUM      = '/images/stadium-seats.jpg'
@@ -20,18 +20,29 @@ const BallIcon = () => <img src={BALL} alt="" className="ball-icon" />
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const navLinks = [
+    { label: 'Nosotras',           href: '#nosotras' },
+    { label: 'Servicios',          href: '#servicios' },
+    { label: 'Draft Internacional',href: '#internacional' },
+    { label: 'Promises',           href: '#promises' },
+    { label: 'Academia',           href: '#academia' },
+    { label: 'Contacto',           href: '#contacto' },
+  ]
+
   return (
     <>
       <header className="header">
         <a href="#hero" className="header-logo">
           <img src="/logo-womangoal.png" alt="Womangoal" className="header-logo-img" />
         </a>
+        <nav className="header-nav" aria-label="Navegación principal">
+          {navLinks.map(l => (
+            <a key={l.href} href={l.href} className="header-nav-link">{l.label}</a>
+          ))}
+        </nav>
         <div className="header-right">
-          <span className="header-nav">
-            Nosotras · Servicios · Draft Internacional · Promises · Academia · Contacto
-          </span>
           <span className="header-lang">ES / EN</span>
-          <button className="header-cta">Solicitar info</button>
+          <a href="#contacto" className="header-cta">Solicitar info</a>
         </div>
         <button className="header-hamburger" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">☰</button>
       </header>
@@ -39,10 +50,14 @@ function Header() {
       {menuOpen && (
         <nav className="mobile-menu" role="dialog" aria-label="Menú principal">
           <button className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Cerrar menú">✕</button>
-          {['Nosotras', 'Servicios', 'Draft Internacional', 'Promises', 'Academia', 'Contacto'].map(item => (
-            <span key={item} className="mobile-menu-link" onClick={() => setMenuOpen(false)}>{item}</span>
+          {navLinks.map(l => (
+            <a key={l.href} href={l.href} className="mobile-menu-link" onClick={() => setMenuOpen(false)}>
+              {l.label}
+            </a>
           ))}
-          <button className="mobile-menu-cta" onClick={() => setMenuOpen(false)}>Solicitar info</button>
+          <a href="#contacto" className="mobile-menu-cta" onClick={() => setMenuOpen(false)}>
+            Solicitar info
+          </a>
         </nav>
       )}
     </>
@@ -51,14 +66,55 @@ function Header() {
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 function Hero() {
+  const [muted, setMuted] = useState(true)
+  const videoRef = useRef(null)
+
+  const toggleSound = () => {
+    if (!videoRef.current) return
+    const newMuted = !muted
+    videoRef.current.muted = newMuted
+    if (!newMuted) {
+      // Al activar sonido, relanzar el play por si estaba pausado
+      videoRef.current.play().catch(() => {})
+    }
+    setMuted(newMuted)
+  }
+
   return (
     <section className="hero" id="hero">
-      <video className="hero-video" src="/video-hero.mp4" autoPlay muted loop playsInline />
+      <video
+        ref={videoRef}
+        className="hero-video"
+        src="/video-hero.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
       <div className="hero-overlay" />
       <div className="hero-content hero-content--bottom-left">
         <span className="hero-line hero-line--small">MORE WOMEN,</span>
         <span className="hero-line hero-line--small">MORE FOOTBALL.</span>
       </div>
+      <button
+        className="hero-sound-btn"
+        onClick={toggleSound}
+        aria-label={muted ? 'Activar sonido' : 'Silenciar sonido'}
+      >
+        {muted ? (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        ) : (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        )}
+      </button>
     </section>
   )
 }
