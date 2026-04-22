@@ -1131,7 +1131,7 @@ input, textarea, select { font-family: inherit; }
   color: var(--color-white);
 }
 .footer-top {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -1319,4 +1319,22 @@ input, textarea, select { font-family: inherit; }
   .footer { padding: 3rem 1.5rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-nav { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ─── Hero Mobile: vídeo completo sin recortar ─── */
+@media (max-width: 860px) {
+  .hero {
+    background-color: #28282B;
+  }
+  .hero-video {
+    object-fit: contain;
+  }
+  .hero-content--bottom-left {
+    bottom: 2rem;
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+  .hero-line--small {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
 }

@@ -534,7 +534,6 @@ function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <img src="/logo-womangoal.png" alt="Womangoal" className="footer-logo-img" />
-          <p className="footer-tagline">More Women, More Football.{'\n'}Madrid → el mundo.</p>
 
           <div className="footer-social">
             <span className="footer-social-label">SÍGUENOS</span>
